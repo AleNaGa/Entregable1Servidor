@@ -3,7 +3,7 @@ include_once 'php/connection.php';
 $con = connection();
 ?>
 <?php // la query
-$sqlQuery = "Select productName, productID, unitPrice from products";
+$sqlQuery = "Select productName, productID, unitsInStock from products";
 $result = $con->query($sqlQuery);
 ?>
 <!--la tabla en html con estilo-->
@@ -21,13 +21,13 @@ $result = $con->query($sqlQuery);
         <tr>
             <th>Product ID</th>
             <th>Product Name</th>
-            <th>Unit Price</th>
+            <th>Units in Stock</th>
         </tr>
         <?php while($row = $result->fetch_assoc()): ?>
             <tr>
                 <td><?= $row['productID'] ?></td>
                 <td><?= $row['productName'] ?></td>
-                <td><?= $row['unitPrice'] ?></td>
+                <td><?= $row['unitsInStock'] ?></td>
             </tr>
         <?php endwhile; ?>
         <?php $con->close(); ?>
